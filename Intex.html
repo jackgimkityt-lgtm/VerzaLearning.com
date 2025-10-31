@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verza Learning Platform</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom Font Setup & Logo Styling */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Background Gradient to match the bright, clean look */
+            background: linear-gradient(135deg, #e0ffe0, #c4f0e9);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Custom Styling for the large centered VERZA logo to mimic the screenshot's effect */
+        .verza-logo-large {
+            font-family: 'Inter', sans-serif;
+            font-weight: 900;
+            font-size: 8rem; /* Large size */
+            line-height: 0.8;
+            color: #4cd1c4; /* Teal fill color */
+            /* Mimics the bright lime-green border/shadow */
+            text-shadow: 
+                -4px -4px 0 #90ee90, /* Top-Left Green Shadow */
+                4px -4px 0 #90ee90,  /* Top-Right Green Shadow */
+                -4px 4px 0 #90ee90,  /* Bottom-Left Green Shadow */
+                4px 4px 0 #90ee90;   /* Bottom-Right Green Shadow */
+            
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Smaller logo in the corner */
+        .verza-logo-small {
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
+            color: #4cd1c4;
+            text-shadow: 1px 1px 0 #90ee90;
+        }
+
+        /* Diagonal pattern on the main card background (like in the screenshot) */
+        .card-pattern-bg {
+            background-image: linear-gradient(45deg, rgba(255,255,255,.3) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.3) 50%, rgba(255,255,255,.3) 75%, transparent 75%, transparent);
+            background-size: 10px 10px;
+        }
+
+        /* Style for the center profile placeholder circle */
+        .profile-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: white;
+            border: 5px solid #d9d9d9;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: -50px; /* Half of its height to sit on top of the card */
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body class="p-4">
+
+    <!-- Top Header Bar -->
+    <header class="fixed top-0 left-0 right-0 h-16 border-b-2 border-gray-300 flex justify-between items-center px-6 bg-white bg-opacity-70 backdrop-blur-sm z-20">
+        <div class="text-3xl verza-logo-small">VERZA</div>
+        <div class="space-x-4">
+            <button onclick="alertMessage('Sign Up is not functional yet!')"
+                    class="px-6 py-2 bg-lime-500 text-white font-bold rounded-lg shadow-md hover:bg-lime-600 transition duration-150 focus:outline-none focus:ring-2 focus:ring-lime-500 focus:ring-opacity-50">
+                Sign Up
+            </button>
+            <button onclick="alertMessage('Log In is not functional yet!')"
+                    class="px-6 py-2 bg-lime-500 text-white font-bold rounded-lg shadow-md hover:bg-lime-600 transition duration-150 focus:outline-none focus:ring-2 focus:ring-lime-500 focus:ring-opacity-50">
+                Log In
+            </button>
+        </div>
+    </header>
+
+    <!-- Large Centered Logo -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <h1 class="verza-logo-large">VERZA</h1>
+    </div>
+
+    <!-- Main Central Card Area -->
+    <main class="relative w-full max-w-lg mt-32">
+        <div class="bg-white p-10 pt-16 rounded-3xl shadow-2xl relative border-2 border-gray-200">
+            
+            <!-- Profile Circle Placeholder -->
+            <div class="profile-circle"></div>
+
+            <!-- Background design element (the teal diamond/square) -->
+            <div class="absolute inset-0 flex items-center justify-center -z-10 opacity-50">
+                <div class="w-72 h-72 bg-gradient-to-br from-teal-400 to-green-400 transform rotate-45 rounded-xl"></div>
+            </div>
+
+            <!-- Custom Message Box -->
+            <div class="text-center mt-6">
+                <p class="text-lg font-semibold text-gray-800 leading-relaxed">
+                    Heya! I'm Jack!
+                    <br/>
+                    I create Verza when I was twelve years old, and
+                    I'm so excited to share my creation with you!
+                    <br/>
+                    I hope you enjoy!
+                </p>
+                <p class="mt-4 text-md font-medium text-gray-600 text-left -ml-16">
+                    -Sincerely, Jack
+                </p>
+            </div>
+            
+            <!-- Main CTA Button -->
+            <div class="mt-8 mb-6">
+                <button onclick="alertMessage('Sign Up is not functional yet!')"
+                        class="w-full px-6 py-4 bg-lime-600 text-white text-xl font-bold rounded-xl shadow-xl hover:bg-lime-700 transition duration-200 transform hover:scale-[1.02] focus:outline-none focus:ring-4 focus:ring-lime-500 focus:ring-opacity-70">
+                    Sign Up For Free
+                </button>
+            </div>
+
+            <!-- Small Footer Links -->
+            <div class="flex justify-center space-x-8 text-lg font-semibold text-gray-700">
+                <a href="#" onclick="alertMessage('Join Room is not functional yet!')" class="hover:text-lime-600 transition duration-150">Join Room</a>
+                <a href="#" onclick="alertMessage('Log In is not functional yet!')" class="hover:text-lime-600 transition duration-150">Log In</a>
+                <a href="#" onclick="alertMessage('Host Room is not functional yet!')" class="hover:text-lime-600 transition duration-150">Host Room</a>
+            </div>
+
+        </div>
+    </main>
+    
+    <script>
+        // Custom alert/modal function (replacing window.alert)
+        function alertMessage(message) {
+            const tempDiv = document.createElement('div');
+            tempDiv.className = "fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 transition-opacity duration-300";
+            tempDiv.innerHTML = `
+                <div class="bg-white p-6 rounded-xl shadow-2xl max-w-sm w-full text-center transform scale-100 transition-transform duration-300">
+                    <p class="text-lg font-semibold text-gray-800 mb-4">${message}</p>
+                    <button onclick="document.body.removeChild(this.closest('.fixed'))" 
+                            class="px-4 py-2 bg-lime-600 text-white rounded-lg hover:bg-lime-700 transition duration-150">
+                        Okay
+                    </button>
+                </div>
+            `;
+            document.body.appendChild(tempDiv);
+        }
+    </script>
+</body>
+</html>
